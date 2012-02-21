@@ -6,6 +6,8 @@ setopt hist_ignore_dups
 . ~/.zsh/git_aliases
 . ~/.zsh/functions
 
+[ -f ~/.zsh-local/aliases ] && . ~/.zsh-local/aliases
+
 if [ $(uname -s) = 'Darwin' ]; then
   export LANG="en_AU.UTF-8"
   export EDITOR='subl -w -l1'
