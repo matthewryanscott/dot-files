@@ -1,5 +1,5 @@
 project_pwd() {
-  echo $PWD | sed -e "s/\/Users\/$USER/~/" -e "s/~\/env\/\([^\/]*\)\/\\1/" -e "s/~\/Sites\/\([^\/]*\)\/http:\/\/\\1/"
+  echo -n $PWD | sed -e "s/\/Users\/$USER/~/" -e "s/\/home\/$USER/~/" -e "s/~\/env\/\([^\/]*\)\/current/\\1/" -e "s/~\/Sites\/\([^\/]*\)\/http:\/\/current/\\1/"
 }
 
 export PROMPT=$'%{\e[0;90m%}%n@\e[0;30;47m%M%{\e[0m%}
