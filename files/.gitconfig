@@ -1,0 +1,17 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	name = Matthew Scott
+	email = matt@11craft.com
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+	quotepath = false
+[branch]
+	autosetupmerge = true
+[push]
+	default = matching
+[github]
+	user = gldnspud
