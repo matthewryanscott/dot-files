@@ -57,7 +57,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
+
 # brew
-if [ "`which brew`" != "" ]; then
+if [ $(uname -s) = 'Darwin' ] && [ "`which brew`" != "" ]; then
     source `brew --prefix`/Library/Contributions/brew_zsh_completion.zsh
 fi
