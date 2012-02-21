@@ -8,4 +8,11 @@ ls -1d .dot-files/files/* .dot-files/files/.* | while read f; do
   [ "$f" == '.dot-files/files/..' ] ||
   [ "$f" == '.dot-files/files/.git' ] ||
   ln -vsf "$f" .
+done &&
+[ -d '.dot-files-local' ] &&
+ls -1d .dot-files-local/files/* .dot-files-local/files/.* | while read f; do
+  [ "$f" == '.dot-files-local/files/.' ] ||
+  [ "$f" == '.dot-files-local/files/..' ] ||
+  [ "$f" == '.dot-files-local/files/.git' ] ||
+  ln -vsf "$f" .
 done
