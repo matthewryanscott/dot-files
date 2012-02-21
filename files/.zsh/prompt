@@ -1,7 +1,33 @@
-project_pwd() {
-  echo -n $PWD | sed -e "s/\/Users\/$USER/~/" -e "s/\/home\/$USER/~/" -e "s/~\/env\/\([^\/]*\)\/current/\\1/" -e "s/~\/Sites\/\([^\/]*\)\/http:\/\/current/\\1/"
+function virtualenv_cwd {
+    # Show the current working directory, and when in a virtualenv,
+    # replace the virtualenv's path with ellipsis.
+    if [ "${VIRTUAL_ENV}" = "" ]; then
+        if [ "${HOME}" = "${PWD[0,${#HOME}]}" ]; then
+            echo "~${PWD[${#HOME}+1,-1]}"
+        else
+            echo "${PWD}"
+        fi
+    else
+        if [ "${VIRTUAL_ENV}" = "${PWD[0,${#VIRTUAL_ENV}]}" ]; then
+            echo "^${PWD[${#VIRTUAL_ENV}+1,-1]}"
+        else
+            if [ "${HOME}" = "${PWD[0,${#HOME}]}" ]; then
+                echo "~${PWD[${#HOME}+1,-1]}"
+            else
+                echo "${PWD}"
+            fi
+        fi
+    fi
+}
+
+function current_virtualenv {
+    # Show the name of the current virtualenv, if we are in one.
+    if [ "$VIRTUAL_ENV" != "" ]; then
+        VIRTUAL_ENV_BASE=`basename "${VIRTUAL_ENV}"`
+        echo "(${VIRTUAL_ENV_BASE}) "
+    fi
 }
 
 export PROMPT=$'%{\e[0;90m%}%n@\e[0;30;47m%M%{\e[0m%}
 %{\e[0;%(?.32.31)m%}>%{\e[0m%} '
-export RPROMPT=$'%{\e[0;90m%}$(project_pwd)$(git_cwd_info)%{\e[0m%}'
+export RPROMPT=$'%{\e[0;90m%}$(current_virtualenv)$(virtualenv_cwd)$(git_cwd_info)%{\e[0m%}'
