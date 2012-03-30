@@ -3,4 +3,5 @@
 ._*
 *.pyc
 *.egg-info
+.idea
 .sass-cache
