@@ -6,7 +6,7 @@
 	name = Matthew Scott
 	email = matt@11craft.com
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/gldnspud/.gitignore
 	autocrlf = input
 	quotepath = false
 [branch]
@@ -15,3 +15,15 @@
 	default = matching
 [github]
 	user = gldnspud
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
