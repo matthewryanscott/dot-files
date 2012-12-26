@@ -53,6 +53,7 @@ zle -N self-insert-backslash
 
 # Load virtualenvwrapper
 export WORKON_HOME=$HOME/env
+export PROJECT_HOME=$HOME/proj
 which virtualenvwrapper.sh >/dev/null 2>&1 &&
 source `which virtualenvwrapper.sh`
 export VIRTUAL_ENV_DISABLE_PROMPT=1
