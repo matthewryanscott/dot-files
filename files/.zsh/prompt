@@ -16,7 +16,7 @@ function virtualenv_cwd {
 	else
 	    PROJECT_PATH=""
 	fi
-	if [ "${PROJECT_PATH}" = "${PWD[0,${#PROJECT_PATH}]}" ]; then
+	if ( [ "${PROJECT_PATH}" != "" ] && [ "${PROJECT_PATH}" = "${PWD[0,${#PROJECT_PATH}]}" ] ); then
 	    echo "…${PWD[${#PROJECT_PATH}+1,-1]}"
         elif [ "${VIRTUAL_ENV}" = "${PWD[0,${#VIRTUAL_ENV}]}" ]; then
             echo "^${PWD[${#VIRTUAL_ENV}+1,-1]}"
