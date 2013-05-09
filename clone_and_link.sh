@@ -16,3 +16,4 @@ ls -1d .dot-files-local/files/* .dot-files-local/files/.* | while read f; do
   [ "$f" == '.dot-files-local/files/.git' ] ||
   ln -vsf "$f" .
 done
+exit 0
