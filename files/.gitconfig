@@ -6,7 +6,7 @@
 	name = Matthew Scott
 	email = matt@11craft.com
 [core]
-	excludesfile = /Users/gldnspud/.gitignore
+	excludesfile = ~/.gitignore
 	autocrlf = input
 	quotepath = false
 [branch]
