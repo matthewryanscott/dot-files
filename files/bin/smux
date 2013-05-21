@@ -1,0 +1,15 @@
+#!/bin/bash
+
+HOST="$1"
+SUDO_USER="$2"
+
+if [ "$HOST" == "" ]; then
+    echo Usage: smux HOST [SUDO_USER]
+    exit 1
+fi
+
+if [ "$SUDO_USER" == "" ]; then
+    ssh -t $HOST "tmux a || tmux"
+else
+    ssh -t $HOST "sudo -iu $SUDO_USER tmux a || sudo -iu $SUDO_USER tmux"
+fi
